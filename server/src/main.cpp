@@ -1,3 +1,4 @@
+#include "Recorder.hpp"
 #include "StatisticsPrinter.hpp"
 #include "log-slayer/lib/CommunicationTable.hpp"
 #include "log-slayer/lib/SharedMemory.hpp"
@@ -41,7 +42,8 @@ int main(int argc, char** argv) {
     CommunicationTable& communicationTable = *log_slayer::SharedMemory::create(sharedMemoryName);
     Context context{ communicationTable };
 
-    EventHandler eventHandler(context);
+    Recorder recorder;
+    EventHandler eventHandler(context, recorder);
     StatitsticsPrinter statisticsPrinter(context);
 
     while (!_isInterrupt) {
@@ -50,12 +52,12 @@ int main(int argc, char** argv) {
         if (::read(STDIN_FILENO, &ch, 1) > 0) {
             switch (std::tolower(ch)) {
                 case 'r': 
-                    eventHandler.startRecord()
+                    recorder.startRecord()
                         ? std::cout << "\033[32m[✓] Recording started\033[0m" << std::endl
                         : std::cout << "\033[33m[!] Recording is alredy in progress\033[0m" << std::endl;
                     break;
                 case 's':
-                    eventHandler.saveRecord()
+                    recorder.saveRecord()
                         ? std::cout << "\033[32m[✓] Recording saved to /tmp/log-slayer-records\033[0m" << std::endl
                         : std::cout << "\033[33m[!] Recording has not started\033[0m" << std::endl;
                     break;
