@@ -1,8 +1,10 @@
-option('shm_dynamic', type: 'integer', value: 0)
+option('shm_dynamic', type: 'boolean', value: false)
 
 option('shm_max_threads', type: 'integer', min: 1, max: 64, value: 18)
 option('shm_name', type: 'string', value: '/log_slayer_shm')
 
-option('trace_event_align', type: 'integer', min: 8, max: 64, value: 16)
-option('trace_events_per_thread', type: 'integer', min: 10000, max: 10000000, value: 1000000)
+option('event_align', type: 'integer', min: 8, max: 64, value: 16)
+option('events_per_thread', type: 'integer', min: 10000, max: 10000000, value: 1000000)
 
+option('enable_event_timestamp', type: 'boolean', value: false)
+option('enable_event_type', type: 'boolean', value: true)

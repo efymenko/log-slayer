@@ -1,7 +1,7 @@
 #include "log-slayer/client/ProfileFunction.hpp"
+#include "log-slayer/config/Config.hpp"
 #include "log-slayer/lib/CommunicationTable.hpp"
 #include "log-slayer/lib/SharedMemory.hpp"
-#include "log-slayer/lib/StaticOptions.hpp"
 
 using namespace log_slayer;
 
@@ -27,6 +27,8 @@ extern "C" {
     }
 
     __attribute__((no_instrument_function)) void __cyg_profile_func_exit(void* functionAddress, void*) {
+        if constexpr (!options::ENABLE_EVENT_TYPE)
+            return;
         profileFunction<HookType::EXIT>(functionAddress, _threadRegion, _localHead, _localTail);
     }
 

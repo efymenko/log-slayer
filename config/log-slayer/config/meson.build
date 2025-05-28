@@ -2,11 +2,13 @@ configure_file(
   input: 'config.in',
   output: 'Config.hpp',
   configuration: configuration_data({
-    'LOG_SLAYER_SHARED_MEMORY_MAX_THREADS': get_option('shm_max_threads'),
-    'LOG_SLAYER_SHARED_MEMORY_DYNAMIC': get_option('shm_dynamic'),
-    'LOG_SLAYER_SHARED_MEMORY_NAME': get_option('shm_name'),
-    'LOG_SLAYER_TRACE_EVENT_ALIGN': get_option('trace_event_align'),
-    'LOG_SLAYER_TRACE_EVENTS_PER_THREAD': get_option('trace_events_per_thread'),
+    'shm_max_threads': get_option('shm_max_threads'),
+    'shm_dynamic': get_option('shm_dynamic').to_string(),
+    'shm_name': get_option('shm_name'),
+    'event_align': get_option('event_align'),
+    'events_per_thread': get_option('events_per_thread'),
+    'enable_event_timestamp': get_option('enable_event_timestamp').to_string(),
+    'enable_event_type': get_option('enable_event_type').to_string(),
   })
 )
 

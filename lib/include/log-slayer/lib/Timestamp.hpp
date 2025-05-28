@@ -1,15 +1,13 @@
 #pragma once
 
-#include <cstdint>
+#include <chrono>
 
 namespace log_slayer {
 
-    using Timestamp = std::uint64_t;
+    using Timestamp = std::chrono::steady_clock::time_point;
 
-    static inline std::uint64_t getTimestamp() {
-        std::uint64_t hi, lo;
-        __asm volatile ("rdtsc" : "=a" (lo), "=d"(hi));
-        return lo | (hi << 32);
+    static inline Timestamp getTimestamp() {
+        return std::chrono::steady_clock::now();
     }
 
 }

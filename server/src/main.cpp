@@ -2,7 +2,6 @@
 #include "log-slayer/lib/CommunicationTable.hpp"
 #include "log-slayer/lib/SharedMemory.hpp"
 #include "log-slayer/lib/SharedMemoryGuard.hpp"
-#include "log-slayer/lib/StaticOptions.hpp"
 
 #include "Context.hpp"
 #include "EventHandler.hpp"

@@ -3,7 +3,6 @@
 #include <array>
 #include <type_traits>
 
-#include "StaticOptions.hpp"
 #include "ThreadRegion.hpp"
 
 namespace log_slayer {

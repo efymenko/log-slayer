@@ -1,9 +1,26 @@
 #pragma once
 
-#define LOG_SLAYER_SHARED_MEMORY_MAX_THREADS @LOG_SLAYER_SHARED_MEMORY_MAX_THREADS@
-#define LOG_SLAYER_SHARED_MEMORY_DYNAMIC @LOG_SLAYER_SHARED_MEMORY_DYNAMIC@
-#define LOG_SLAYER_SHARED_MEMORY_NAME "@LOG_SLAYER_SHARED_MEMORY_NAME@"
+#include <cstdint>
 
-#define LOG_SLAYER_TRACE_EVENT_ALIGN @LOG_SLAYER_TRACE_EVENT_ALIGN@
-#define LOG_SLAYER_TRACE_EVENTS_PER_THREAD @LOG_SLAYER_TRACE_EVENTS_PER_THREAD@
+namespace log_slayer {
+
+    namespace options {
+
+        constexpr auto SHARED_MEMORY_NAME = "@shm_name@";
+
+        constexpr bool SHARED_MEMORY_DYNAMIC = @shm_dynamic@;
+
+        constexpr std::size_t SHARED_MEMORY_MAX_THREADS = @shm_max_threads@;
+
+        constexpr std::size_t EVENT_ALIGN = @event_align@;
+
+        constexpr std::size_t EVENTS_PER_THREAD = @events_per_thread@;
+
+        constexpr bool ENABLE_EVENT_TYPE = @enable_event_type@;
+
+        constexpr bool ENABLE_EVENT_TIMESTAMP = @enable_event_timestamp@;
+
+    }
+
+}
 

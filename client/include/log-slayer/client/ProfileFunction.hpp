@@ -53,7 +53,7 @@ namespace log_slayer {
         if (__builtin_expect(dist >= delta && dist % delta == 0 , 0)) {
             threadRegion.head.store(localHead, std::memory_order_release);
         }
-        threadRegion.traceEvents[localHead] = { hookType, 0, functionAddress };
+        threadRegion.traceEvents[localHead] = TraceEvent(functionAddress, hookType);
         localHead = nextIndex;
     }
 

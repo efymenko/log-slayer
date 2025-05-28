@@ -2,7 +2,8 @@
 
 #include "Context.hpp"
 #include "Statistics.hpp"
-#include "log-slayer/lib/StaticOptions.hpp"
+
+#include "log-slayer/config/Config.hpp"
 #include "log-slayer/lib/TraceEvent.hpp"
 
 #include <thread>
@@ -45,7 +46,7 @@ namespace log_slayer {
 
     private:
         void run() {
-            constexpr auto maxSize = options::TRACE_EVENTS_PER_THREAD;
+            constexpr auto maxSize = options::EVENTS_PER_THREAD;
             std::vector<TraceEvent> eventBuffer;
             eventBuffer.reserve(maxSize);
             while (!_stopFlag) {

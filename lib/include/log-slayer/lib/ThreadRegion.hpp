@@ -1,6 +1,5 @@
 #pragma once
 
-#include "StaticOptions.hpp"
 #include "log-slayer/lib/TraceEvents.hpp"
 
 #include <atomic>
