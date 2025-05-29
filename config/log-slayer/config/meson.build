@@ -9,6 +9,7 @@ configure_file(
     'events_per_thread': get_option('events_per_thread'),
     'enable_event_timestamp': get_option('enable_event_timestamp').to_string(),
     'enable_event_type': get_option('enable_event_type').to_string(),
+    'save_path': get_option('save_path'),
   })
 )
 

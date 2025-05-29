@@ -49,17 +49,18 @@ int main(int argc, char** argv) {
     while (!_isInterrupt) {
         char ch;
         errno = 0;
+        std::string message;
         if (::read(STDIN_FILENO, &ch, 1) > 0) {
             switch (std::tolower(ch)) {
                 case 'r': 
-                    recorder.startRecord()
-                        ? std::cout << "\033[32m[✓] Recording started\033[0m" << std::endl
-                        : std::cout << "\033[33m[!] Recording is alredy in progress\033[0m" << std::endl;
+                    recorder.startRecord(message)
+                        ? std::cout << "\033[32m[✓] " << message << "\033[0m" << std::endl
+                        : std::cout << "\033[33m[!] " << message << "\033[0m" << std::endl;
                     break;
                 case 's':
-                    recorder.saveRecord()
-                        ? std::cout << "\033[32m[✓] Recording saved to /tmp/log-slayer-records\033[0m" << std::endl
-                        : std::cout << "\033[33m[!] Recording has not started\033[0m" << std::endl;
+                    recorder.saveRecord(message)
+                        ? std::cout << "\033[32m[✓] " << message << "\033[0m" << std::endl
+                        : std::cout << "\033[33m[!] " << message << "\033[0m" << std::endl;
                     break;
                 case 'e':
                     _isInterrupt = true;

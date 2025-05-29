@@ -20,6 +20,8 @@ namespace log_slayer {
 
         constexpr bool ENABLE_EVENT_TIMESTAMP = @enable_event_timestamp@;
 
+        constexpr auto SAVE_PATH = "@save_path@";
+
     }
 
 }

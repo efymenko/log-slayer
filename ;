@@ -1,0 +1,86 @@
+#pragma once
+
+#include "log-slayer/config/Config.hpp"
+#include "log-slayer/lib/TraceEvent.hpp"
+
+#include <filesystem>
+#include <fstream>
+#include <array>
+#include <atomic>
+
+namespace log_slayer {
+
+    class Recorder {
+    public:
+        Recorder() : _recordingFlag(false) {}
+
+    public:
+        bool startRecord() {
+            if (!_recordingFlag) {
+                _recordingFlag = true;
+                return true;
+            }
+            return false;
+        }
+
+        bool saveRecord() {
+            if (_recordingFlag) {
+                _recordingFlag = false;
+                return true;
+            }
+            return false;
+        }
+
+        void write(TraceEvent* begin, TraceEvent* end, std::size_t regionId) {
+            if (!_recordingFlag.load(std::memory_order_acquire))
+                return;
+            auto& file = files[regionId];
+            if (!file.is_open()) {
+                file.open();
+            }
+
+        }
+
+    private:
+        std::filesystem::path prepareDir() {
+            std::filesystem::path rootDir(options::SAVE_PATH);
+            auto pathToDir = rootDir / generateDirName();
+            std::filesystem::error_code ec;
+            do {
+
+            } while();
+            std::filesystem::create_directories(pathToDir);
+        }
+
+        std::string getFilePath(std::size_t regionId) {
+            return 
+        }
+
+        std::string generateDirName() {
+            auto now = std::chrono::system_clock::now();
+            auto seconds = std::chrono::time_point_cast<std::chrono::seconds>(now);
+            auto fraction = now - seconds;
+            auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(fraction);
+
+            std::time_t t = std::chrono::system_clock::to_time_t(now);
+            std::tm tm;
+
+            localtime_r(&t, &tm);
+
+            char date_time[24];
+            strftime(date_time, sizeof(date_time), "%Y.%m.%d-%H:%M:%S", &tm);
+
+            std::ostringstream oss;
+            oss << date_time << '.' << std::setfill('0') << std::setw(3) << milliseconds.count();
+            return oss.str();
+        }
+
+    private:
+        std::atomic<bool> _recordingFlag;
+        std::array<std::ofstream, options::SHARED_MEMORY_MAX_THREADS> files;
+        std::filesystem::path _currentRootPath;
+
+    };
+
+}
+
