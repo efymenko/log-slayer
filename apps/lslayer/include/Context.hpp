@@ -1,6 +1,6 @@
 #pragma once
 
-#include "log-slayer/lib/CommunicationTable.hpp"
+#include "common/CommunicationTable.hpp"
 #include "Statistics.hpp"
 
 namespace log_slayer {

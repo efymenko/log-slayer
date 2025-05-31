@@ -1,8 +1,6 @@
 #pragma once
 
-#include "FunctionFilter.hpp"
-#include "StaticFilterRules.hpp"
-#include "log-slayer/lib/ThreadRegion.hpp"
+#include "common/ThreadRegion.hpp"
 
 #include <atomic>
 #include <cstdio>

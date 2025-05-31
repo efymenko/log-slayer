@@ -1,8 +1,8 @@
 #pragma once
 
-#include "log-slayer/lib/FunctionAddress.hpp"
-#include "log-slayer/lib/HookType.hpp"
-#include "log-slayer/client/ThreadLocalStats.hpp"
+#include "common/FunctionAddress.hpp"
+#include "common/HookType.hpp"
+#include "ThreadLocalStats.hpp"
 
 namespace log_slayer {
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "log-slayer/config/Config.hpp"
-#include "log-slayer/lib/TraceEvent.hpp"
+#include "config/Config.hpp"
+#include "common/TraceEvent.hpp"
 
 #include <filesystem>
 #include <fstream>

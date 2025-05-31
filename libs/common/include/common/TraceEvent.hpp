@@ -1,6 +1,6 @@
 #pragma once
 
-#include "log-slayer/config/Config.hpp"
+#include "config/Config.hpp"
 #include "FunctionAddress.hpp"
 #include "HookType.hpp"
 #include "Timestamp.hpp"

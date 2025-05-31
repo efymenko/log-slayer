@@ -1,9 +1,9 @@
 #pragma once
 
+#include "ThreadRegion.hpp"
+
 #include <array>
 #include <type_traits>
-
-#include "ThreadRegion.hpp"
 
 namespace log_slayer {
 

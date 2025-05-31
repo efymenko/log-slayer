@@ -1,11 +1,10 @@
-#include "Recorder.hpp"
-#include "StatisticsPrinter.hpp"
-#include "log-slayer/lib/CommunicationTable.hpp"
-#include "log-slayer/lib/SharedMemory.hpp"
-#include "log-slayer/lib/SharedMemoryGuard.hpp"
-
 #include "Context.hpp"
 #include "EventHandler.hpp"
+#include "Recorder.hpp"
+#include "StatisticsPrinter.hpp"
+#include "common/CommunicationTable.hpp"
+#include "common/SharedMemory.hpp"
+#include "common/SharedMemoryGuard.hpp"
 
 #include <cctype>
 #include <csignal>

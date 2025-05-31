@@ -1,6 +1,6 @@
 #pragma once
 
-#include "log-slayer/lib/TraceEvents.hpp"
+#include "common/TraceEvents.hpp"
 
 #include <atomic>
 #include <type_traits>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "log-slayer/lib/FunctionAddress.hpp"
+#include "common/FunctionAddress.hpp"
 
 namespace log_slayer {
 

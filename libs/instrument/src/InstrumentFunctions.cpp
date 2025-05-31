@@ -1,7 +1,7 @@
-#include "log-slayer/client/ProfileFunction.hpp"
-#include "log-slayer/config/Config.hpp"
-#include "log-slayer/lib/CommunicationTable.hpp"
-#include "log-slayer/lib/SharedMemory.hpp"
+#include "instrument/ProfileFunction.hpp"
+#include "config/Config.hpp"
+#include "common/CommunicationTable.hpp"
+#include "common/SharedMemory.hpp"
 
 using namespace log_slayer;
 

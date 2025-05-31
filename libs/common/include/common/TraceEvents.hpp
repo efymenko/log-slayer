@@ -1,9 +1,9 @@
 #pragma once
 
+#include "TraceEvent.hpp"
+
 #include <array>
 #include <type_traits>
-
-#include "TraceEvent.hpp"
 
 namespace log_slayer {
 

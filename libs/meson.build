@@ -1,4 +1,4 @@
 subdir('config')
-subdir('lib')
-subdir('client')
+subdir('common')
+subdir('instrument')
 

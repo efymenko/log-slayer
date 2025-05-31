@@ -4,7 +4,7 @@
 #include "Statistics.hpp"
 #include "Recorder.hpp"
 
-#include "log-slayer/config/Config.hpp"
+#include "config/Config.hpp"
 
 #include <thread>
 

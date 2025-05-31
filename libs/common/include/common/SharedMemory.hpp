@@ -1,12 +1,14 @@
 #pragma once
 
 #include "CommunicationTable.hpp"
+
+#include <cerrno>
 #include <cstdint>
-#include <iostream>
+#include <cstdio>
+#include <cstdlib>
 #include <cstring>
-#include <string>
-#include <sys/mman.h>
 #include <fcntl.h>
+#include <sys/mman.h>
 #include <unistd.h>
 
 namespace log_slayer {
@@ -44,7 +46,7 @@ namespace log_slayer {
     private:
         static void handleError(const char* functionName) {
             printf("%s: %s\n", functionName, std::strerror(errno));
-            quick_exit(errno);
+            std::quick_exit(errno);
         }
 
         static CommunicationTable* memoryMap(int fileDescriptor) {
